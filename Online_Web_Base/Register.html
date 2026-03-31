@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Register Page</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url("Spist.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .register-container {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 450px;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+  .register-title {
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 20px;
+  }
+  label {
+    font-weight: 600;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  /* Make confirm password span full width */
+  .full-width {
+    grid-column: 1 / -1;
+  }
+  /* Role selection buttons container */
+  .role-selection {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .role-btn {
+    background: white;
+    border: 1.8px solid black;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 10px 0;
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .role-btn:hover, .role-btn.active {
+    background-color: #00b35d;
+    color: black;
+    font-weight: 600;
+  }
+  .sign-up-btn {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    background-color: #00b35d;
+    border: none;
+    padding: 12px 0;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s;
+  }
+  .sign-up-btn:hover {
+    background-color: #048a40;
+  }
+</style>
+</head>
+<body>
+
+<div class="register-container">
+  <div class="register-title">Create Account</div>
+  <form id="registerForm">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" required />
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" required />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+    </div>
+    <div>
+      <label for="contact">Contact Number:</label>
+      <input type="tel" id="contact" required />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" required />
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" required />
+    </div>
+
+    <div class="role-selection">
+      <div class="role-btn" data-role="Teacher’s / Others">TEACHER’S/ OTHERS</div>
+      <div class="role-btn" data-role="Student">STUDENT</div>
+      <div class="role-btn" data-role="Admin">ADMIN</div>
+    </div>
+
+    <button type="submit" class="sign-up-btn">Sign Up</button>
+  </form>
+</div>
+
+<script>
+  // Role button selection logic
+  const roleButtons = document.querySelectorAll('.role-btn');
+  let selectedRole = null;
+
+  roleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all
+      roleButtons.forEach(btn => btn.classList.remove('active'));
+      // Add active to clicked
+      button.classList.add('active');
+      selectedRole = button.getAttribute('data-role');
+    });
+  });
+
+  // Form submission example - showing alert with form data & role
+  document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (!selectedRole) {
+      alert('Please select a role.');
+      return;
+    }
+
+    const firstName = this.firstName.value.trim();
+    const lastName = this.lastName.value.trim();
+    const email = this.email.value.trim();
+    const contact = this.contact.value.trim();
+    const password = this.password.value;
+    const confirmPassword = this.confirmPassword.value;
+
+    if (password !== confirmPassword) {
+      alert('Password and Confirm Password do not match.');
+      return;
+    }
+
+    // You can replace this with actual form submission
+    alert(
+      `Account Created:\nName: ${firstName} ${lastName}\nEmail: ${email}\nContact: ${contact}\nRole: ${selectedRole}`
+    );
+
+    // Reset form
+    this.reset();
+    roleButtons.forEach(btn => btn.classList.remove('active'));
+    selectedRole = null;
+  });
+</script>
+
+</body>
+</html>

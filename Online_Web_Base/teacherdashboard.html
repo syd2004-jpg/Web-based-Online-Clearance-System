@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Teacher Dashboard</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+  }
+  header {
+    background: url("Spist.jpg") no-repeat center center fixed;
+    color: rgb(0, 0, 0);
+    padding: 30px 20px;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+
+  }
+  .subheader {
+    background-color: #003d46;
+    color: #009975;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  .container {
+    display: flex;
+    height: calc(100vh - 90px);
+  }
+  .sidebar {
+    background-color: #073642;
+    width: 200px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .profile {
+    background-color: #182f37;
+    color: white;
+    border-radius: 5px;
+    padding: 12px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 13px;
+  }
+  .profile-icon {
+    font-size: 40px;
+    background-color: #2f535c;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .profile-name {
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .profile-email {
+    font-weight: 400;
+    font-size: 11px;
+    word-wrap: break-word;
+  }
+  .nav-button {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  .nav-button:focus,
+  .nav-button:hover {
+    background-color: #a9cee8;
+    outline: none;
+  }
+  main {
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+  .subject-card {
+    border: 1.5px solid black;
+    border-radius: 10px;
+    width: 220px;
+    min-height: 30px;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .subject-title {
+    font-weight: 700;
+    font-size: 26px;
+  }
+  .subject-subtitle {
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+  .subject-teacher {
+    font-size: 13px;
+    margin-top: auto;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  SOUTHERN PHILIPPINES INSTITUTE OF SCIENCE AND TECHNOLOGY
+</header>
+<div class="subheader">
+  CLEARANCE OF STUDENT'S
+</div>
+
+<div class="container">
+  <aside class="sidebar">
+    <div class="profile">
+      <div class="profile-icon">👤</div>
+      <div class="profile-name">TOCMO, DONALYN</div>
+      <div class="profile-email">c24-4908-01@spist.edu.ph</div>
+    </div>
+    <button class="nav-button">Dashboard</button>
+    <button class="nav-button">List of Students</button>
+    <button class="nav-button">Cleared</button>
+    <button class="nav-button">INCOMPLETE</button>
+    <button class="nav-button">Change Password</button>
+    <button class="nav-button">Log Out</button>
+    <button class="nav-button">About Us</button>
+  </aside>
+
+  <main>
+    <div class="subject-card">
+      <div class="subject-title">BSIT 1</div>
+      <div class="subject-subtitle">Event Driven</div>
+      <div class="subject-teacher">Donalyn Tocmo</div>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-title">BSIT 3</div>
+      <div class="subject-subtitle">S A A D</div>
+      <div class="subject-teacher">Donalyn Tocmo</div>
+    </div>
+
+    <div class="subject-card">
+      <div class="subject-title">BSIT 2</div>
+      <div class="subject-subtitle">S I A</div>
+      <div class="subject-teacher">Donalyn Tocmo</div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
